@@ -1,0 +1,19 @@
+word=input("Enter the string : ")
+
+
+# AND operation
+print("AND operation :")
+for x in word:
+    AND_string=ord(x)&127
+    print(chr(AND_string),end="")
+    
+print("\n-----------------------")
+
+
+# XOR operation
+print("XOR operation :")
+for x in word:
+    XOR_string=ord(x)^127
+    print(chr(XOR_string),end="")
+
+print("\n-----------------------")
