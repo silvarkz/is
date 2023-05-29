@@ -1,0 +1,32 @@
+package is;
+
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Scanner;
+
+public class md5 {
+	public static String getMD5(String input) {
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			byte[] MessageDigest = md.digest(input.getBytes());
+			BigInteger no = new BigInteger(1, MessageDigest);
+			String hashset = no.toString(16);
+			while(hashset.length() < 32) {
+				hashset = "0" + hashset;
+			}
+			return hashset;
+		}
+		catch(NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public static void main(String args[]) throws NoSuchAlgorithmException {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a String : ");
+		String s = sc.nextLine();
+		System.out.print("The hashset is : " +getMD5(s));
+	}
+
+}
